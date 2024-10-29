@@ -11,6 +11,7 @@ class LaplaceDistribution:
         ####
         # Do not change the class outside of this block
         # Your code here
+        return np.mean(np.abs(x - np.quantile(x,q=0.5,axis=0)),axis=0)
         ####
 
     def __init__(self, features):
@@ -20,8 +21,9 @@ class LaplaceDistribution:
         '''
         ####
         # Do not change the class outside of this block
-        self.loc = # YOUR CODE HERE
-        self.scale = # YOUR CODE HERE
+        features = features.reshape(features.shape[0],-1)         # helps with 1d case
+        self.loc = np.quantile(features,0.5,axis=0)# YOUR CODE HERE
+        self.scale = self.mean_abs_deviation_from_median(features)# YOUR CODE HERE
         ####
 
 
@@ -33,7 +35,7 @@ class LaplaceDistribution:
         '''
         ####
         # Do not change the class outside of this block
-        return 
+        return - np.abs(self.loc-values) / self.scale - np.log(2*self.scale) 
         ####
         
     
@@ -43,4 +45,4 @@ class LaplaceDistribution:
         Args:
             values: A numpy array of shape (n_objects, n_features). Every column represents all available values for the selected feature.
         '''
-        return np.exp(self.logpdf(value))
+        return np.exp(self.logpdf(values))
