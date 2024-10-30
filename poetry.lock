@@ -824,12 +824,35 @@ files = [
 numpy = [
     {version = ">=2.1.0", markers = "python_version >= \"3.13\""},
     {version = ">=1.26.0", markers = "python_version >= \"3.12\" and python_version < \"3.13\""},
-    {version = ">=1.23.3", markers = "python_version >= \"3.11\" and python_version < \"3.12\""},
     {version = ">=1.21.2", markers = "python_version >= \"3.10\" and python_version < \"3.11\""},
+    {version = ">=1.23.3", markers = "python_version >= \"3.11\" and python_version < \"3.12\""},
 ]
 
 [package.extras]
 dev = ["absl-py", "pyink", "pylint (>=2.6.0)", "pytest", "pytest-xdist"]
+
+[[package]]
+name = "mlxtend"
+version = "0.23.1"
+description = "Machine Learning Library Extensions"
+optional = false
+python-versions = "*"
+files = [
+    {file = "mlxtend-0.23.1-py3-none-any.whl", hash = "sha256:38cb84f864dfdaa85c1d7e46d374be94d3d0fd0e2662ad278f42ccc4abcc785a"},
+    {file = "mlxtend-0.23.1.tar.gz", hash = "sha256:9f3075e3deac57f4452fee2c1f0befda58a24c1f9c26bed649a2303ca04baa29"},
+]
+
+[package.dependencies]
+joblib = ">=0.13.2"
+matplotlib = ">=3.0.0"
+numpy = ">=1.16.2"
+pandas = ">=0.24.2"
+scikit-learn = ">=1.0.2"
+scipy = ">=1.2.1"
+
+[package.extras]
+docs = ["mkdocs", "mkdocs-bootswatch", "nbconvert", "python-markdown-math"]
+testing = ["pytest"]
 
 [[package]]
 name = "nest-asyncio"
@@ -980,8 +1003,8 @@ files = [
 [package.dependencies]
 numpy = [
     {version = ">=1.26.0", markers = "python_version >= \"3.12\""},
-    {version = ">=1.23.2", markers = "python_version == \"3.11\""},
     {version = ">=1.22.4", markers = "python_version < \"3.11\""},
+    {version = ">=1.23.2", markers = "python_version == \"3.11\""},
 ]
 python-dateutil = ">=2.8.2"
 pytz = ">=2020.1"
@@ -1709,4 +1732,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "a841f27e9a87119d0e216fb320a5cebb3251748daeed891ac1f17b77b64f0266"
+content-hash = "f757e3e14291721775580219c3209b8d1227db9587d9fe7ffd581cc94efb212c"

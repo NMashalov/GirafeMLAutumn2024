@@ -1,10 +1,12 @@
 import numpy as np
+
 """
 Credits: the original code belongs to Stanford CS231n course assignment1. Source link: http://cs231n.github.io/assignments2019/assignment1/
 """
 
+
 class KNearestNeighbor:
-    """ a kNN classifier with L2 distance """
+    """a kNN classifier with L2 distance"""
 
     def __init__(self):
         pass
@@ -45,7 +47,7 @@ class KNearestNeighbor:
         elif num_loops == 2:
             dists = self.compute_distances_two_loops(X)
         else:
-            raise ValueError('Invalid value %d for num_loops' % num_loops)
+            raise ValueError("Invalid value %d for num_loops" % num_loops)
 
         return self.predict_labels(dists, k=k)
 
@@ -75,7 +77,7 @@ class KNearestNeighbor:
                 # not use a loop over dimension, nor use np.linalg.norm().          #
                 #####################################################################
                 # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-                dists[i,j] = np.sum((self.X_train[j] -X[i])**2)**0.5 
+                dists[i, j] = np.sum((self.X_train[j] - X[i]) ** 2) ** 0.5
                 # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
         return dists
 
@@ -98,7 +100,7 @@ class KNearestNeighbor:
             # Do not use np.linalg.norm().                                        #
             #######################################################################
             # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-            dists[i,:] = np.sum((self.X_train - X[i])**2,axis=1)**0.5
+            dists[i, :] = np.sum((self.X_train - X[i]) ** 2, axis=1) ** 0.5
             # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
         return dists
 
@@ -126,7 +128,11 @@ class KNearestNeighbor:
         #       and two broadcast sums.                                         #
         #########################################################################
         # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-        dists= (np.sum(self.X_train**2,axis=1).reshape(-1,1).T - 2 * X @ self.X_train.T + np.sum(X**2,axis=1).reshape(-1,1)) **0.5
+        dists = (
+            np.sum(self.X_train**2, axis=1).reshape(-1, 1).T
+            - 2 * X @ self.X_train.T
+            + np.sum(X**2, axis=1).reshape(-1, 1)
+        ) ** 0.5
 
         # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
         return dists
@@ -167,7 +173,7 @@ class KNearestNeighbor:
             # label.                                                                #
             #########################################################################
             # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-            vals,counts = np.unique(closest_y, return_counts=True)
+            vals, counts = np.unique(closest_y, return_counts=True)
             y_pred[i] = vals[np.argmax(counts)]
             # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
