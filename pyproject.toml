@@ -1,22 +1,26 @@
 [tool.poetry]
-name = "bayes-tasks"
+name = "girafe-ml"
 version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = " >=3.10"
 ipykernel = "^6.29.5"
-numpy = "^2.1.2"
+numpy = "1.23.5"
 matplotlib = "^3.9.2"
 scipy = "^1.14.1"
 tqdm = "^4.66.5"
-jax = "^0.4.34"
 scikit-learn = "^1.5.2"
 seaborn = "^0.13.2"
-mlxtend = "^0.23.1"
 lightgbm = "^4.5.0"
+optuna = "^4.1.0"
+llvmlite = "^0.43.0"
+shap = "^0.46.0"
+numba = "^0.60.0"
+catboost = "^1.2.7"
+optuna-integration = {extras = ["catboost"], version = "^4.1.0"}
 
 
 [tool.poetry.group.dev.dependencies]
